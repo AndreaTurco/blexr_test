@@ -56,7 +56,7 @@
                                 <div class="modal-body">
                                     <h3>Insert one parameter for each conversion</h3>
                                     <form id="form_convert" method="post">
-                                        <input type="hidden" name="token" value="<?php echo generateFormToken('form_convert'); ?>">
+                                        <input id="token_mtc" type="hidden" name="token" value="<?php echo generateFormToken('form_convert'); ?>">
                                     </form>
                                 </div>
                                 <div class="modal-footer">
