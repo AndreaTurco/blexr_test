@@ -1,4 +1,5 @@
 <?php
+require_once 'classes/Odds.php';
 
 session_start();
 
@@ -32,6 +33,18 @@ function verifyFormToken($form) {
     }
 
     return true;
+}
+
+if(isset($_POST['call_func']) && !empty($_POST['call_func'])) {
+    $action = $_POST['call_func'];
+    switch($action) {
+        case 'loadOddsTable' :
+            $odd = new Odd();
+            return $odd->getOddsConversionTable();
+            break;
+        default:
+            return false;
+    }
 }
 
 ?>

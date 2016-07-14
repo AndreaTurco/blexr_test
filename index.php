@@ -1,4 +1,6 @@
-<?php require_once 'functions.php'; ?>
+<?php require_once 'functions.php';
+generateFormToken('form_convert');
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -55,12 +57,24 @@
                                 </div>
                                 <div class="modal-body">
                                     <h3>Insert one parameter for each conversion</h3>
-                                    <form id="form_convert" method="post">
-                                        <input id="token_mtc" type="hidden" name="token" value="<?php echo generateFormToken('form_convert'); ?>">
-                                    </form>
+                                    <div id="form_convert" class="row">
+                                        <div class="col-md-4">
+                                            <h4>Fractional Odds</h4>
+                                            <input type="text" data-odd-format="uk"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h4>Decimal Odds</h4>
+                                            <input type="text" data-odd-format="eu"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h4>Moneyline  Odds</h4>
+                                            <input type="text" data-odd-format="us"/>
+                                        </div>
+                                    </div>
+                                    <div id="no_odd_found" class="alert alert-danger row" role="alert" style="display: none;">no odds found</div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Convert</button>
+                                    <button type="button" class="btn btn-primary" id="convert_odd">Convert</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
