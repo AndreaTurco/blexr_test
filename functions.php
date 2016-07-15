@@ -38,15 +38,19 @@ function verifyFormToken($form) {
 if(isset($_POST['call_func']) && !empty($_POST['call_func'])) {
     $action = $_POST['call_func'];
     $returns = [];
-    switch($action) {
-        case 'loadOddsTable' :
-            $odd = new Odd();
-            $returns = $odd->getOddsConversionTable();
-            break;
-        default:
-            return false;
+    if(verifyFormToken('form_convert')) {
+        switch ($action) {
+            case 'loadOddsTable' :
+                $odd = new Odd();
+                $returns = $odd->getOddsConversionTable();
+                break;
+            default:
+                return false;
+        }
+        echo json_encode($returns);
+    } else {
+        echo "token mismatch, bye!";
     }
-    echo json_encode($returns);
 }
 
 ?>

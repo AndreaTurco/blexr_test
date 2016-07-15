@@ -1,5 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/blexr_test/functions.php';
-generateFormToken('form_convert');
+$tkn = generateFormToken('form_convert');
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -58,6 +58,7 @@ generateFormToken('form_convert');
                                 <div class="modal-body">
                                     <h3>Insert one parameter for each conversion</h3>
                                     <div id="form_convert" class="row">
+                                        <input type="hidden" id="tkn" value="<?php echo $tkn;?>">
                                         <div class="col-md-4">
                                             <h4>Fractional Odds</h4>
                                             <input type="text" data-odd-format="uk"/>

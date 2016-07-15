@@ -23,11 +23,13 @@
             $modal.on('show.bs.modal', function (e) {
                 //ajax request for load the conversion table
                 if(GlobalOddsContainer === null) {
+                    var tkn = $('#tkn').val();
                     $.ajax({
                         type: "POST",
                         url: "functions.php",
                         data: {
-                            call_func: "loadOddsTable"
+                            call_func: "loadOddsTable",
+                            token: tkn
                         },
                         dataType: "json",
                         success: function (response) {
@@ -35,6 +37,7 @@
                         },
                         error: function (data) {
                             console.log('error ' + data.responseText);
+                            $modal.modal('hide');
                         }
                     });
                     console.log('modal requested');
