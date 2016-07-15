@@ -1,7 +1,5 @@
 <?php 
-error_reporting(E_ERROR | E_NOTICE);
-
-require_once $_SERVER['DOCUMENT_ROOT'].'/blexr_test/functions.php';
+require_once __DIR__.'/functions.php';
 $tkn = generateFormToken('form_convert');
 ?>
 <!doctype html>

@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/blexr_test/classes/Odds.php';
+require_once __DIR__.'/classes/Odds.php';
 
 session_start();
 

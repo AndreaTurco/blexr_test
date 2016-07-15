@@ -1,5 +1,5 @@
 <?php  
-require_once $_SERVER['DOCUMENT_ROOT'].'/blexr_test/conf/db_connection.php';
+require_once __DIR__.'/../conf/db_connection.php';
 
 class Odd{
     /*
