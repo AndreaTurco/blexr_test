@@ -38,7 +38,7 @@ $tkn = generateFormToken('form_convert');
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
           <div class="container">
-            <h1>Hello, world!</h1>
+            <h1>Blexr Test</h1>
             <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
           </div>
         </div>
@@ -48,7 +48,7 @@ $tkn = generateFormToken('form_convert');
                 <div class="col-md-4 col-md-offset-4">
                     <h2>Odds converter</h2>
                     <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-info" data-toggle="modal" data-target="#myModal" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-info" data-toggle="modal" data-target="#myModal" role="button">Open Modal &raquo;</a></p>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
