@@ -1,5 +1,5 @@
 <?php
-require "configuration.php";
+require_once "configuration.php";
 
 $link = mysqli_connect($servername, $username, $password, $db_name);
 
@@ -8,5 +8,4 @@ if (!$link) {
             . mysqli_connect_error());
 }
 
-mysqli_close($link);
 ?>
