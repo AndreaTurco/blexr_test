@@ -1,5 +1,5 @@
 <?php
-require_once 'classes/Odds.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/blexr_test/classes/Odds.php';
 
 session_start();
 
@@ -37,14 +37,16 @@ function verifyFormToken($form) {
 
 if(isset($_POST['call_func']) && !empty($_POST['call_func'])) {
     $action = $_POST['call_func'];
+    $returns = [];
     switch($action) {
         case 'loadOddsTable' :
             $odd = new Odd();
-            return $odd->getOddsConversionTable();
+            $returns = $odd->getOddsConversionTable();
             break;
         default:
             return false;
     }
+    echo json_encode($returns);
 }
 
 ?>

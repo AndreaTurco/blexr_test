@@ -1,4 +1,4 @@
-<?php require_once 'functions.php';
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/blexr_test/functions.php';
 generateFormToken('form_convert');
 ?>
 <!doctype html>

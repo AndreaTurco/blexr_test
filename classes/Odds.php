@@ -1,6 +1,7 @@
 <?php  
 require_once 'DB.php';
-require 'conf/configuration.php';
+require $_SERVER['DOCUMENT_ROOT'].'/blexr_test/conf/configuration.php';
+error_reporting(E_ERROR | E_NOTICE);
 
 class Odd{
     /*
@@ -16,14 +17,14 @@ class Odd{
             die('Connect Error (' . mysqli_connect_errno() . ') '
                 . mysqli_connect_error());
         }
-        $query = mysqli_query($link,"SELECT * FROM odds_chart");
+        $query = mysqli_query($link,"SELECT Fractional_UK , Decimal_EU, Moneyline_US FROM odds_chart");
         $resultArray = array();
         while($row = mysqli_fetch_assoc($query))
         {
             array_push($resultArray, $row);
         }
         mysqli_close($link);
-		return json_encode($resultArray);
+		return $resultArray;
 	}
 }
 

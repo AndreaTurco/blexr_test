@@ -1,7 +1,7 @@
 (function(){
     if( typeof $M === "undefined") $M = {};
 
-    GlobalOddsContainer = {};
+    GlobalOddsContainer = null;
 
     var $modal,
         $odd_type_ToConvert,
@@ -22,22 +22,27 @@
         loadData = function(){
             $modal.on('show.bs.modal', function (e) {
                 //ajax request for load the conversion table
-                $.ajax({
-                    type: "POST",
-                    url : "functions.php",
-                    data : {
-                        call_func   : "loadOddsTable"
-                    }
-                }).success(function(response){
-                    GlobalOddsContainer = response;
-                    return true;
-                });
-                console.log('modal requested');
+                if(GlobalOddsContainer === null) {
+                    $.ajax({
+                        type: "POST",
+                        url: "functions.php",
+                        data: {
+                            call_func: "loadOddsTable"
+                        },
+                        dataType: "json",
+                        success: function (response) {
+                            GlobalOddsContainer = response;
+                        },
+                        error: function (data) {
+                            console.log('error ' + data.responseText);
+                        }
+                    });
+                    console.log('modal requested');
+                }
             });
         },
         watchInputUser = function () {
             $modal.on('keydown','input[data-odd-format]', function () {
-                debugger;
                 $odd_type_ToConvert = $(this).data('oddFormat');
             });
         },
@@ -45,7 +50,7 @@
             $modal.on('click','#convert_odd',function () {
                 var $odd_val = $modal.find('[data-odd-format="'+ $odd_type_ToConvert +'"]'),
                     $oddMess = $('#no_odd_found');
-                if(checkValueToConvert($odd_val)){
+                if(checkValueToConvert($odd_val.val())){
                     $oddMess.fadeOut('fast');
                 } else {
                     $oddMess.fadeIn('fast');
@@ -53,15 +58,18 @@
             });
         },
         checkValueToConvert = function ($odd_val) {
+            var found = false;
             $.map(GlobalOddsContainer, function (arrOfOdds, key) {
-                if($.inArray($odd_val,arrOfOdds)){
-                    $('[data-odd-format="uk"]').val(arrOfOdds[0]);
-                    $('[data-odd-format="eu"]').val(arrOfOdds[1]);
-                    $('[data-odd-format="us"]').val(arrOfOdds[2]);
-                    return true;
+                for(var $i in arrOfOdds){
+                    if(arrOfOdds[$i] === $odd_val){
+                        $('[data-odd-format="uk"]').val(arrOfOdds['Fractional_UK']);
+                        $('[data-odd-format="eu"]').val(arrOfOdds['Decimal_EU']);
+                        $('[data-odd-format="us"]').val(arrOfOdds['Moneyline_US']);
+                        found = true;
+                    }
                 }
-                return false;
             });
+            return found;
         };
 
     $M.loadDataOnFirstModalShow = init;
