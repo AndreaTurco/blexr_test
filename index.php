@@ -22,6 +22,7 @@ $tkn = generateFormToken('form_convert');
                 padding-bottom: 20px;
             }
         </style>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
 
@@ -53,7 +54,9 @@ $tkn = generateFormToken('form_convert');
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <span aria-hidden="true" class="close_modal" data-dismiss="modal"></span>
+                                    <span class="dice"></span>
+                                    <span class="corner"></span>
                                     <h4 class="modal-title" id="myModalLabel">Modal Odds Convert</h4>
                                 </div>
                                 <div class="modal-body">

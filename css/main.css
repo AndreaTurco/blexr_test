@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
   /* The html and body elements cannot have any padding or margin. */ }
 
 /* Wrapper for page content to push down footer */
@@ -13,6 +14,53 @@ body {
   padding: 0 0 60px; }
 
 /* Set the fixed height of the footer here */
-#footer {
+footer {
   height: 60px;
   line-height: 60px; }
+  footer p {
+    margin: 0;
+    padding-right: 25px; }
+
+#myModal .modal-dialog {
+  margin-top: 80px; }
+
+#myModal .modal-header {
+  background-color: #222222;
+  text-align: center;
+  color: white;
+  font-size: 14px; }
+  #myModal .modal-header .close_modal {
+    background-image: url("../img/close.png");
+    background-position: 50% 50%;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    top: -31px;
+    right: 16px;
+    width: 26px;
+    height: 26px;
+    background-size: 100%;
+    z-index: 1; }
+  #myModal .modal-header .dice {
+    background-image: url("../img/dice.png");
+    background-position: 50% 50%;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+    left: 32px;
+    width: 72px;
+    height: 47px;
+    background-size: 100%; }
+  #myModal .modal-header .corner {
+    background-image: url("../img/angolo.png");
+    background-position: 50% 50%;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    top: -43px;
+    right: 0;
+    width: 74px;
+    height: 43px;
+    background-size: 100%;
+    z-index: 0; }
